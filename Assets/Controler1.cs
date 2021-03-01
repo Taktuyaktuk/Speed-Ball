@@ -11,6 +11,8 @@ public class Controler1 : MonoBehaviour
 
     public float tapPower = 10;
     public float jumpPower = 10;
+
+    public AudioSource jumpSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,17 +32,17 @@ public class Controler1 : MonoBehaviour
             if((stopPos.x < startPos.x) && transform.position.x > -2)
             {
                 rigidbody.AddForce(Vector2.left * tapPower, ForceMode2D.Force);
-                Debug.Log("lalala");
+               
             }
-            if ((stopPos.x > startPos.x) && transform.position.x < -2)
+            if ((stopPos.x > startPos.x) && transform.position.x < 2)
             {
                 rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
-                Debug.Log("sralala");
-            }
+            }  
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonUp(0))
         {
+            jumpSound.Play();
             rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force); 
         }
     }
