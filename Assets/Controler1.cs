@@ -30,6 +30,10 @@ public class Controler1 : MonoBehaviour
     bool facingRight = true;
 
     public AudioSource jumpSound;
+
+    private Touch touch1;
+
+    private Vector2 beginTouchPosition, endTouchPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,10 +63,30 @@ public class Controler1 : MonoBehaviour
         PlayerController();
         SwipeTest();
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.touchCount >0)
         {
-            jumpSound.Play();
-            rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+            touch1 = Input.GetTouch(0);
+
+            switch (touch1.phase)
+            {
+                case TouchPhase.Began:
+                    beginTouchPosition = touch1.position;
+                    break;
+
+                case TouchPhase.Ended:
+
+                    endTouchPosition = touch1.position;
+
+                    if(beginTouchPosition == endTouchPosition)
+                    {
+                        jumpSound.Play();
+                        rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+                    }
+                    break;
+            }
+
+            //jumpSound.Play();
+            //rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
         }
     }
 
