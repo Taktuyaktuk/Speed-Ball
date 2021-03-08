@@ -28,6 +28,10 @@ public class Controler1 : MonoBehaviour
 
     float dir = 1;
     bool facingRight = true;
+    
+    bool isGrounded;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
 
     public AudioSource jumpSound;
 
@@ -79,8 +83,11 @@ public class Controler1 : MonoBehaviour
 
                     if(beginTouchPosition == endTouchPosition)
                     {
-                        jumpSound.Play();
-                        rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+                        if (isGrounded)
+                        {
+                            jumpSound.Play();
+                            rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+                        }
                     }
                     break;
             }
@@ -88,6 +95,11 @@ public class Controler1 : MonoBehaviour
             //jumpSound.Play();
             //rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     void PlayerController()
@@ -170,5 +182,12 @@ public class Controler1 : MonoBehaviour
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
     }
-    
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("JumpPad"))
+        {
+            rigidbody.velocity = Vector2.up * 15f;
+        }
+    }
 }
