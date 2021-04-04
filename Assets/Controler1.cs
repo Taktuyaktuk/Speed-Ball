@@ -67,7 +67,7 @@ public class Controler1 : MonoBehaviour
         PlayerController();
         SwipeTest();
 
-        if (Input.touchCount >0)
+        if (Input.touchCount > 0)
         {
             touch1 = Input.GetTouch(0);
 
@@ -99,7 +99,7 @@ public class Controler1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 1.4f, groundLayer);
     }
 
     void PlayerController()
@@ -187,7 +187,7 @@ public class Controler1 : MonoBehaviour
     {
         if(other.gameObject.CompareTag("JumpPad"))
         {
-            rigidbody.velocity = Vector2.up * 15f;
+            rigidbody.AddForce( Vector2.up * 1000f);
         }
     }
 }

@@ -56,11 +56,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\move.cs" />
+    <Compile Include="Assets\jumpingPad.cs" />
     <Compile Include="Assets\button_click_animation.cs" />
     <Compile Include="Assets\Controler1.cs" />
     <Compile Include="Assets\camera.cs" />
-    <Compile Include="Assets\jumpingPad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
