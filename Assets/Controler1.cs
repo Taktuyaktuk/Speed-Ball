@@ -47,23 +47,7 @@ public class Controler1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        //{
-        //    startPos = Input.GetTouch(0).position;
-        //}
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        //{
-        //    stopPos = Input.GetTouch(0).position;
-        //    if((stopPos.x < startPos.x) && transform.position.x > -2)
-        //    {
-        //        rigidbody.AddForce(Vector2.left * tapPower, ForceMode2D.Force);
-
-        //    }
-        //    if ((stopPos.x > startPos.x) && transform.position.x < 2)
-        //    {
-        //        rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
-        //    }  
-        //}
+        
         PlayerController();
         SwipeTest();
 
@@ -92,8 +76,7 @@ public class Controler1 : MonoBehaviour
                     break;
             }
 
-            //jumpSound.Play();
-            //rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+            
         }
     }
 
@@ -165,14 +148,7 @@ public class Controler1 : MonoBehaviour
             {
                 FlipAndMove();
             }
-            //else if(yDistance > xDistance)
-            //{
-            //    if(Distance.y>0)
-            //    {
-            //        jumpSound.Play();
-            //        rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force); 
-            //    }
-            //}
+           
         }
 
     }
@@ -188,6 +164,14 @@ public class Controler1 : MonoBehaviour
         if(other.gameObject.CompareTag("JumpPad"))
         {
             rigidbody.AddForce( Vector2.up * 1000f);
+        }
+        else if( other.gameObject.CompareTag("RightSpeedPad"))
+        {
+            rigidbody.AddForce(Vector2.right * 1700f);
+        }
+        else if (other.gameObject.CompareTag("LeftSpeedPad"))
+        {
+            rigidbody.AddForce(Vector2.left * 1700f);
         }
     }
 }
