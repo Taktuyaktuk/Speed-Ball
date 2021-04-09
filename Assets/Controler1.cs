@@ -9,7 +9,13 @@ public class Controler1 : MonoBehaviour
 
     private Vector2 startPos, stopPos;
 
-    Rigidbody2D rigidbody;
+    
+    private Rigidbody2D rigidbody;
+    private SpriteRenderer sprite;
+    public bool barrelJump = false;
+    public bool inBarrel = false;
+    
+    
 
     public float tapPower = 10;
     public float jumpPower = 10;
@@ -39,9 +45,16 @@ public class Controler1 : MonoBehaviour
 
     private Vector2 beginTouchPosition, endTouchPosition;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        barrelJump = false;
+        inBarrel = false;
+    }
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -64,13 +77,18 @@ public class Controler1 : MonoBehaviour
                 case TouchPhase.Ended:
 
                     endTouchPosition = touch1.position;
-
-                    if(beginTouchPosition == endTouchPosition)
+                    
+                    if (beginTouchPosition == endTouchPosition)
                     {
+                        
                         if (isGrounded)
                         {
                             jumpSound.Play();
                             rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+                        }
+                        else if (inBarrel == true && isGrounded == false)
+                        {
+                            barrelJump = true;
                         }
                     }
                     break;
@@ -82,8 +100,9 @@ public class Controler1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 1.4f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 1.3f, groundLayer);
     }
+  
 
     void PlayerController()
     {
@@ -174,4 +193,25 @@ public class Controler1 : MonoBehaviour
             rigidbody.AddForce(Vector2.left * 1700f);
         }
     }
+    public void EnterBarrel(GameObject Barrel)
+    {
+        
+        rigidbody.velocity = new Vector2 (0,0);
+        rigidbody.isKinematic = true;
+        sprite.enabled = false;
+        transform.parent = Barrel.transform;
+        inBarrel = true;
+        
+    }
+
+    public void ExitBarrel (Vector2 launchDir, float launchForce)
+    {
+        transform.parent = null;
+        rigidbody.isKinematic = false;
+        sprite.enabled = true;
+        rigidbody.AddForce(launchDir * launchForce);
+        barrelJump = false;
+        inBarrel = false;
+    }
+   
 }
