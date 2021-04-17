@@ -153,7 +153,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.89, y: -0.4}
+  m_ConnectedAnchor: {x: -1.37, y: -0.36}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -175,7 +175,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0076551884}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -186,7 +186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.45, y: 0.54}
+  m_Size: {x: 1.45, y: 0.5246897}
   m_EdgeRadius: 0
 --- !u!1 &3699053706875419122
 GameObject:
