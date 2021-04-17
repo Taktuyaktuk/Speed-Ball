@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5320739485052680048}
   - component: {fileID: 8713726171237672022}
-  - component: {fileID: 7134224856423775890}
+  - component: {fileID: 3380821659094474563}
   m_Layer: 0
   m_Name: red button
   m_TagString: Untagged
@@ -193,8 +193,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &7134224856423775890
-CapsuleCollider2D:
+--- !u!61 &3380821659094474563
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,9 +206,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005252361, y: 0.007870691}
-  m_Size: {x: 1.4237713, y: 0.499679}
-  m_Direction: 1
+  m_Offset: {x: 0, y: -0.011906415}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.45, y: 0.54}
+    newSize: {x: 1.37, y: 0.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.45, y: 0.5161872}
+  m_EdgeRadius: 0
 --- !u!1 &8311667555438501617
 GameObject:
   m_ObjectHideFlags: 0
