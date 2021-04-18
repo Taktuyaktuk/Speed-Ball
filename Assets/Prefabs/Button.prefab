@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4407633790085529428}
   - component: {fileID: 7790803810547485163}
   - component: {fileID: 1470092689964185825}
+  - component: {fileID: 7150251886986215753}
   m_Layer: 0
   m_Name: red button
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834031595114849512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5978507598983213992}
@@ -153,7 +154,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.37, y: -0.36}
+  m_ConnectedAnchor: {x: -1.37, y: -0.3}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -188,6 +189,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.45, y: 0.5246897}
   m_EdgeRadius: 0
+--- !u!95 &7150251886986215753
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834031595114849512}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76f12b569dc364a4aa212ac306485470, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3699053706875419122
 GameObject:
   m_ObjectHideFlags: 0
