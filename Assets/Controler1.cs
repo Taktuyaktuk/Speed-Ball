@@ -45,6 +45,12 @@ public class Controler1 : MonoBehaviour
 
     private Vector2 beginTouchPosition, endTouchPosition;
     // Start is called before the first frame update
+
+    public float speed;
+   
+
+     
+
     private void Awake()
     {
         barrelJump = false;
@@ -101,6 +107,9 @@ public class Controler1 : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 1.3f, groundLayer);
+        rigidbody.AddTorque(speed, ForceMode2D.Force);
+
+
     }
   
 
@@ -115,13 +124,15 @@ public class Controler1 : MonoBehaviour
             stopPos = Input.GetTouch(0).position;
             if ((stopPos.x < startPos.x) && facingRight == false)
             {
-                rigidbody.AddForce(Vector2.left * tapPower, ForceMode2D.Force);
+                //rigidbody.AddForce(Vector2.left * tapPower, ForceMode2D.Force);
+                speed += 1;
                 FlipAndMove();
 
             }
             if ((stopPos.x > startPos.x) && facingRight == true)
             {
-                rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
+                // rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
+                speed -= 1;
                 FlipAndMove();
             }
         }

@@ -61,6 +61,7 @@
     <Compile Include="Assets\Controler1.cs" />
     <Compile Include="Assets\camera.cs" />
     <Compile Include="Assets\Barrel.cs" />
+    <Compile Include="Assets\grassRot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
