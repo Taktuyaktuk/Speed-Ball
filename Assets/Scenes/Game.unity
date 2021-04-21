@@ -20066,7 +20066,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 2
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -20132,7 +20132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634411708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.01, y: -6.92, z: 0}
+  m_LocalPosition: {x: 16.59, y: -0.52, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1953625670}
@@ -20198,7 +20198,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c38bf67bf2746a459af82eaec6020d5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -20307,6 +20307,8 @@ MonoBehaviour:
     m_Bits: 1
   jumpSound: {fileID: 1953625669}
   speed: 0
+  maxSpeed: 10
+  maxSpeedMinus: -10
 --- !u!1 &654220954
 GameObject:
   m_ObjectHideFlags: 0

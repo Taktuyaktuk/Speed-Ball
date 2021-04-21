@@ -47,8 +47,8 @@ public class Controler1 : MonoBehaviour
     // Start is called before the first frame update
 
     public float speed;
-   
-
+    public float maxSpeed;
+    public float maxSpeedMinus;
      
 
     private void Awake()
@@ -102,6 +102,7 @@ public class Controler1 : MonoBehaviour
 
             
         }
+        
     }
 
     private void FixedUpdate()
@@ -109,6 +110,7 @@ public class Controler1 : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 1.3f, groundLayer);
         rigidbody.AddTorque(speed, ForceMode2D.Force);
 
+        
 
     }
   
@@ -125,14 +127,30 @@ public class Controler1 : MonoBehaviour
             if ((stopPos.x < startPos.x) && facingRight == false)
             {
                 //rigidbody.AddForce(Vector2.left * tapPower, ForceMode2D.Force);
-                speed += 1;
+                if(speed <= -0.1)
+                {
+                    speed = 0;
+                }
+                if( speed < maxSpeed && speed > -0.1)
+                {
+                    speed += 1;
+                }
+                
                 FlipAndMove();
 
             }
             if ((stopPos.x > startPos.x) && facingRight == true)
             {
                 // rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
-                speed -= 1;
+                if (speed >= 0.1)
+                {
+                    speed = 0;
+                }
+                if( speed > maxSpeedMinus && speed < 0.1)
+                {
+                    speed -= 1;
+                }
+                
                 FlipAndMove();
             }
         }
@@ -197,11 +215,11 @@ public class Controler1 : MonoBehaviour
         }
         else if( other.gameObject.CompareTag("RightSpeedPad"))
         {
-            rigidbody.AddForce(Vector2.right * 1700f);
+            rigidbody.AddForce(Vector2.right * 2200f);
         }
         else if (other.gameObject.CompareTag("LeftSpeedPad"))
         {
-            rigidbody.AddForce(Vector2.left * 1700f);
+            rigidbody.AddForce(Vector2.left * 2200f);
         }
     }
     public void EnterBarrel(GameObject Barrel)
