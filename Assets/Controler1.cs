@@ -49,8 +49,9 @@ public class Controler1 : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float maxSpeedMinus;
-     
 
+    private float nextSlowTime = 2;
+    public float slowTime = 2;
     private void Awake()
     {
         barrelJump = false;
@@ -69,6 +70,7 @@ public class Controler1 : MonoBehaviour
         
         PlayerController();
         SwipeTest();
+        RotationSlowing();
 
         if (Input.touchCount > 0)
         {
@@ -133,7 +135,7 @@ public class Controler1 : MonoBehaviour
                 }
                 if( speed < maxSpeed && speed > -0.1)
                 {
-                    speed += 1;
+                    speed += 2;
                 }
                 
                 FlipAndMove();
@@ -148,7 +150,7 @@ public class Controler1 : MonoBehaviour
                 }
                 if( speed > maxSpeedMinus && speed < 0.1)
                 {
-                    speed -= 1;
+                    speed -= 2;
                 }
                 
                 FlipAndMove();
@@ -242,5 +244,18 @@ public class Controler1 : MonoBehaviour
         barrelJump = false;
         inBarrel = false;
     }
-   
+    public void RotationSlowing()
+    {
+        if ( speed >=1  && speed <= 11 && Time.time > nextSlowTime)
+        {
+            nextSlowTime += slowTime;
+            speed -= 1;
+        }
+
+        if(speed <= -1 && speed >= -11 && Time.time > nextSlowTime)
+        {
+            nextSlowTime += slowTime;
+            speed += 1;
+        }
+    }
 }
