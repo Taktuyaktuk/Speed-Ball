@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class grassRot : MonoBehaviour
 {
-    Quaternion rotation;
-    Rigidbody2D rb;
-
-    private void Awake()
+    Quaternion OrgRotation;
+    Vector3 OrgPosition;
+ 
+    void Start()
     {
-        rotation = transform.rotation;
+        OrgRotation = transform.rotation;
+        OrgPosition = transform.parent.transform.position - transform.position;
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
-        transform.rotation = rotation;
-        //transform.position = transform.localPosition;
-        //transform.localPosition = new Vector3(0, -2, 0);
+        transform.rotation = OrgRotation;
+        transform.position = transform.parent.position - OrgPosition;
     }
 }
+
+
+
 
 
