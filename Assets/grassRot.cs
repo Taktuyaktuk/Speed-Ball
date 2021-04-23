@@ -5,6 +5,7 @@ using UnityEngine;
 public class grassRot : MonoBehaviour
 {
     Quaternion rotation;
+    Rigidbody2D rb;
 
     private void Awake()
     {
@@ -14,5 +15,9 @@ public class grassRot : MonoBehaviour
     private void LateUpdate()
     {
         transform.rotation = rotation;
+        //transform.position = transform.localPosition;
+        //transform.localPosition = new Vector3(0, -2, 0);
     }
 }
+
+
