@@ -20465,7 +20465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634411708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.2, y: -6.6, z: 0}
+  m_LocalPosition: {x: -1.79, y: 0.58, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1953625670}
@@ -31336,7 +31336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108937893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4, y: -0.69, z: 0}
+  m_LocalPosition: {x: 0.05, y: -1.24, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 634411712}
@@ -31352,7 +31352,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
 --- !u!199 &2108937896
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -31397,7 +31397,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.015
+  m_MaxParticleSize: 2
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -31555,7 +31555,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.06
+      scalar: 3.38
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -31671,7 +31671,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.13
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -32047,7 +32047,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 0.42
+    angle: 0.84
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0
@@ -32133,7 +32133,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.12
+      value: 0.01
       mode: 0
       spread: 0
       speed:
@@ -32363,7 +32363,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 1
-      minScalar: 0.25
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -36145,7 +36145,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &2108937899
 MonoBehaviour:
   m_ObjectHideFlags: 0
