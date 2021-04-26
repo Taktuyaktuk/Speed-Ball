@@ -52,10 +52,15 @@ public class Controler1 : MonoBehaviour
 
     private float nextSlowTime = 2;
     public float slowTime = 2;
+
+    public bool rightDirection = false;
+
+    public GameObject grassActivator;
     private void Awake()
     {
         barrelJump = false;
         inBarrel = false;
+        
     }
     void Start()
     {
@@ -71,7 +76,7 @@ public class Controler1 : MonoBehaviour
         PlayerController();
         SwipeTest();
         RotationSlowing();
-
+        _grassActivator();
         if (Input.touchCount > 0)
         {
             touch1 = Input.GetTouch(0);
@@ -117,7 +122,7 @@ public class Controler1 : MonoBehaviour
     }
   
 
-    void PlayerController()
+   public void PlayerController()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -136,6 +141,7 @@ public class Controler1 : MonoBehaviour
                 if( speed < maxSpeed && speed > -0.1)
                 {
                     speed += 2;
+                    rightDirection = true;
                 }
                 
                 FlipAndMove();
@@ -151,6 +157,7 @@ public class Controler1 : MonoBehaviour
                 if( speed > maxSpeedMinus && speed < 0.1)
                 {
                     speed -= 2;
+                    rightDirection = false;
                 }
                 
                 FlipAndMove();
@@ -258,4 +265,17 @@ public class Controler1 : MonoBehaviour
             speed += 1;
         }
     }
+
+    public void _grassActivator()
+    {
+        if(speed <0 || speed >0)
+        {
+            grassActivator.SetActive(true);
+        }
+        else
+        {
+            grassActivator.SetActive(false);
+        }
+    }
+        
 }
