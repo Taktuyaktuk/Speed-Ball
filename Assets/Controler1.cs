@@ -140,7 +140,7 @@ public class Controler1 : MonoBehaviour
                 }
                 if( speed < maxSpeed && speed > -0.1)
                 {
-                    speed += 2;
+                    speed += 1;
                     rightDirection = true;
                 }
                 
@@ -156,7 +156,7 @@ public class Controler1 : MonoBehaviour
                 }
                 if( speed > maxSpeedMinus && speed < 0.1)
                 {
-                    speed -= 2;
+                    speed -= 1;
                     rightDirection = false;
                 }
                 
