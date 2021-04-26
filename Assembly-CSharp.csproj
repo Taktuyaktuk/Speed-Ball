@@ -57,11 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\jumpingPad.cs" />
+    <Compile Include="Assets\grassRot.cs" />
     <Compile Include="Assets\button_click_animation.cs" />
     <Compile Include="Assets\Controler1.cs" />
     <Compile Include="Assets\camera.cs" />
     <Compile Include="Assets\Barrel.cs" />
-    <Compile Include="Assets\grassRot.cs" />
+    <Compile Include="Assets\grassVfxEffects.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
