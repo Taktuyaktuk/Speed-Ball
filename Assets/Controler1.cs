@@ -103,6 +103,15 @@ public class Controler1 : MonoBehaviour
                         {
                             barrelJump = true;
                         }
+                        else if(!isGrounded)
+                        {
+                            var touchPosJump = Camera.main.ScreenToWorldPoint(touch1.position);
+                            var touchDir = touchPosJump - gameObject.transform.position;
+                            touchDir.z = 0.0f;
+                            touchDir = touchDir.normalized;
+                            jumpSound.Play();
+                            rigidbody.AddForce(touchDir * tapPower);
+                        }
                     }
                     break;
             }
