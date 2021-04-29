@@ -56,6 +56,11 @@ public class Controler1 : MonoBehaviour
     public bool rightDirection = false;
 
     public GameObject grassActivator;
+
+    //zaczyna sie robiæ burdel... ponizej skok w powietrzu przy swipe
+    float touchTimeStart, touchTimeFinish, timeInterval;
+    Vector2 direction;
+    
     private void Awake()
     {
         barrelJump = false;
@@ -85,15 +90,18 @@ public class Controler1 : MonoBehaviour
             {
                 case TouchPhase.Began:
                     beginTouchPosition = touch1.position;
+                    touchTimeStart = Time.deltaTime;
+
                     break;
 
                 case TouchPhase.Ended:
 
                     endTouchPosition = touch1.position;
-                    
+                    touchTimeFinish = Time.deltaTime;
+
                     if (beginTouchPosition == endTouchPosition)
                     {
-                        
+
                         if (isGrounded)
                         {
                             jumpSound.Play();
@@ -103,15 +111,23 @@ public class Controler1 : MonoBehaviour
                         {
                             barrelJump = true;
                         }
-                        else if(!isGrounded)
-                        {
-                            var touchPosJump = Camera.main.ScreenToWorldPoint(touch1.position);
-                            var touchDir = touchPosJump - gameObject.transform.position;
-                            touchDir.z = 0.0f;
-                            touchDir = touchDir.normalized;
-                            jumpSound.Play();
-                            rigidbody.AddForce(touchDir * tapPower);
-                        }
+                        //else if(!isGrounded)
+                        //{
+                        //    var touchPosJump = Camera.main.ScreenToWorldPoint(touch1.position);
+                        //    var touchDir = touchPosJump - gameObject.transform.position;
+                        //    touchDir.z = 0.0f;
+                        //    touchDir = touchDir.normalized;
+                        //    jumpSound.Play();
+                        //    rigidbody.AddForce(touchDir * tapPower);
+                        //}
+                    }
+                    else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && !isGrounded)
+                    {
+                        touchTimeFinish = Time.time;
+                        timeInterval = touchTimeFinish - touchTimeStart;
+                        direction = beginTouchPosition - endTouchPosition;
+                        rigidbody.AddForce(-direction / timeInterval * tapPower);
+                        
                     }
                     break;
             }
