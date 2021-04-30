@@ -21640,9 +21640,9 @@ MonoBehaviour:
     m_Bits: 1
   jumpSound: {fileID: 1953625669}
   speed: 0
-  maxSpeed: 2
-  maxSpeedMinus: -2
-  slowTime: 1
+  maxSpeed: 3
+  maxSpeedMinus: -3
+  slowTime: 2
   rightDirection: 0
   grassActivator: {fileID: 2108937893}
 --- !u!1 &654220954
@@ -21985,7 +21985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659993072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 0.89, z: 0}
+  m_LocalPosition: {x: -0.01, y: 2.14, z: 0}
   m_LocalScale: {x: 1.95, y: 3.32, z: 1}
   m_Children: []
   m_Father: {fileID: 1541788333}

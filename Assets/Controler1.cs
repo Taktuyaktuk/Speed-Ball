@@ -90,7 +90,7 @@ public class Controler1 : MonoBehaviour
             {
                 case TouchPhase.Began:
                     beginTouchPosition = touch1.position;
-                    touchTimeStart = Time.deltaTime;
+                    touchTimeStart = Time.time;
 
                     break;
 
@@ -123,7 +123,7 @@ public class Controler1 : MonoBehaviour
                     }
                     else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && !isGrounded)
                     {
-                        touchTimeFinish = Time.time;
+                        touchTimeFinish = Time.deltaTime;
                         timeInterval = touchTimeFinish - touchTimeStart;
                         direction = beginTouchPosition - endTouchPosition;
                         rigidbody.AddForce(-direction / timeInterval * tapPower);
@@ -159,11 +159,13 @@ public class Controler1 : MonoBehaviour
             if ((stopPos.x < startPos.x) && facingRight == false)
             {
                 //rigidbody.AddForce(Vector2.left * tapPower, ForceMode2D.Force);
-                if(speed <= -0.1)
+                if (speed <= 0)
                 {
                     speed = 0;
+                    var brakePosition = rigidbody.position;
+                    rigidbody.transform.position = brakePosition;
                 }
-                if( speed < maxSpeed && speed > -0.1)
+                if (speed < maxSpeed && speed >= 0)
                 {
                     speed += 1;
                     rightDirection = true;
@@ -175,11 +177,13 @@ public class Controler1 : MonoBehaviour
             if ((stopPos.x > startPos.x) && facingRight == true)
             {
                 // rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
-                if (speed >= 0.1)
+                if (speed >= 0)
                 {
                     speed = 0;
+                    var brakePosition = rigidbody.position;
+                    rigidbody.transform.position = brakePosition;
                 }
-                if( speed > maxSpeedMinus && speed < 0.1)
+                if ( speed > maxSpeedMinus && speed <= 0)
                 {
                     speed -= 1;
                     rightDirection = false;
