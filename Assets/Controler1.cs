@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -72,6 +73,7 @@ public class Controler1 : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         
+        
     }
 
     // Update is called once per frame
@@ -82,58 +84,8 @@ public class Controler1 : MonoBehaviour
         SwipeTest();
         RotationSlowing();
         _grassActivator();
-        if (Input.touchCount > 0)
-        {
-            touch1 = Input.GetTouch(0);
-
-            switch (touch1.phase)
-            {
-                case TouchPhase.Began:
-                    beginTouchPosition = touch1.position;
-                    touchTimeStart = Time.time;
-
-                    break;
-
-                case TouchPhase.Ended:
-
-                    endTouchPosition = touch1.position;
-                    touchTimeFinish = Time.deltaTime;
-
-                    if (beginTouchPosition == endTouchPosition)
-                    {
-
-                        if (isGrounded)
-                        {
-                            jumpSound.Play();
-                            rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
-                        }
-                        else if (inBarrel == true && isGrounded == false)
-                        {
-                            barrelJump = true;
-                        }
-                        //else if(!isGrounded)
-                        //{
-                        //    var touchPosJump = Camera.main.ScreenToWorldPoint(touch1.position);
-                        //    var touchDir = touchPosJump - gameObject.transform.position;
-                        //    touchDir.z = 0.0f;
-                        //    touchDir = touchDir.normalized;
-                        //    jumpSound.Play();
-                        //    rigidbody.AddForce(touchDir * tapPower);
-                        //}
-                    }
-                    else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && !isGrounded)
-                    {
-                        touchTimeFinish = Time.deltaTime;
-                        timeInterval = touchTimeFinish - touchTimeStart;
-                        direction = beginTouchPosition - endTouchPosition;
-                        rigidbody.AddForce(-direction / timeInterval * tapPower);
-                        
-                    }
-                    break;
-            }
-
-            
-        }
+        jump1();
+        
         
     }
 
@@ -306,5 +258,98 @@ public class Controler1 : MonoBehaviour
             grassActivator.SetActive(false);
         }
     }
+        public void jump1 ()
+    {
+        if (Input.touchCount > 0)
+        {
+            touch1 = Input.GetTouch(0);
+
+            switch (touch1.phase)
+            {
+                case TouchPhase.Began:
+                    beginTouchPosition = touch1.position;
+                    touchTimeStart = Time.time;
+
+                    break;
+
+                case TouchPhase.Ended:
+
+                    endTouchPosition = touch1.position;
+                    touchTimeFinish = Time.time;
+
+                    if (beginTouchPosition == endTouchPosition)
+                    {
+
+                        if (isGrounded)
+                        {
+                            jumpSound.Play();
+                            rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+                        }
+                        else if (inBarrel == true && isGrounded == false)
+                        {
+                            barrelJump = true;
+                        }
+                        //else if(!isGrounded)
+                        //{
+                        //    var touchPosJump = Camera.main.ScreenToWorldPoint(touch1.position);
+                        //    var touchDir = touchPosJump - gameObject.transform.position;
+                        //    touchDir.z = 0.0f;
+                        //    touchDir = touchDir.normalized;
+                        //    jumpSound.Play();
+                        //    rigidbody.AddForce(touchDir * tapPower);
+                        //}
+                    }
+                    else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && !isGrounded)
+                    {
+                        //touchTimeFinish = Time.deltaTime;
+                        timeInterval = touchTimeFinish - touchTimeStart;
+                        direction = beginTouchPosition - endTouchPosition;
+                        rigidbody.AddForce(-direction * tapPower);
+
+                    }
+                    break;
+            }
+
+            
+        }
+
         
+    }
+
+    public void jump2()
+    {
+        if (Input.touchCount >0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            beginTouchPosition = Input.GetTouch(0).position;
+            touchTimeStart = Time.time;
+        }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            endTouchPosition = Input.GetTouch(0).position;
+            touchTimeFinish = Time.time;
+
+            if (beginTouchPosition == endTouchPosition)
+            {
+
+                if (isGrounded)
+                {
+                    jumpSound.Play();
+                    rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
+                }
+                else if (inBarrel == true && isGrounded == false)
+                {
+                    barrelJump = true;
+                }
+                
+            }
+
+            if(!isGrounded)
+            {
+                timeInterval = touchTimeFinish - touchTimeStart;
+                endTouchPosition = Input.GetTouch(0).position;
+                direction = beginTouchPosition - endTouchPosition;
+                rigidbody.AddForce(-direction * tapPower);
+            }
+        }
+    }
 }
