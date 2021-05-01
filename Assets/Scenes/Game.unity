@@ -21660,7 +21660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrelJump: 1
   inBarrel: 0
-  tapPower: 20
+  tapPower: 0.15
   jumpPower: 70
   maxSwipetime: 0.5
   minSwipeDistance: 50
