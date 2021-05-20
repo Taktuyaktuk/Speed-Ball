@@ -201,15 +201,15 @@ public class Controler1 : MonoBehaviour
     {
         if(other.gameObject.CompareTag("JumpPad"))
         {
-            rigidbody.AddForce( Vector2.up * 1000f);
+            rigidbody.AddForce( Vector2.up * 100f);
         }
         else if( other.gameObject.CompareTag("RightSpeedPad"))
         {
-            rigidbody.AddForce(Vector2.right * 2200f);
+            rigidbody.AddForce(Vector2.right * 500f);
         }
         else if (other.gameObject.CompareTag("LeftSpeedPad"))
         {
-            rigidbody.AddForce(Vector2.left * 2200f);
+            rigidbody.AddForce(Vector2.left * 500f);
         }
     }
     public void EnterBarrel(GameObject Barrel)
@@ -350,6 +350,15 @@ public class Controler1 : MonoBehaviour
                 direction = beginTouchPosition - endTouchPosition;
                 rigidbody.AddForce(-direction * tapPower);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            
         }
     }
 }

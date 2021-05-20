@@ -8,6 +8,9 @@ TagManager:
   - RightSpeedPad
   - LeftSpeedPad
   - Barrel
+  - GM
+  - Dead
+  - Coin
   layers:
   - Default
   - TransparentFX
