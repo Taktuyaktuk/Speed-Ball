@@ -51,8 +51,8 @@ public class Controler1 : MonoBehaviour
     public float maxSpeed;
     public float maxSpeedMinus;
 
-    private float nextSlowTime = 2;
-    public float slowTime = 2;
+    public float nextSlowTime = 2;
+    private float slowTime;
 
     public bool rightDirection = false;
 
@@ -111,16 +111,21 @@ public class Controler1 : MonoBehaviour
             if ((stopPos.x < startPos.x) && facingRight == false)
             {
                 //rigidbody.AddForce(Vector2.left * tapPower, ForceMode2D.Force);
-                if (speed <= 0)
-                {
-                    speed = 0;
-                    var brakePosition = rigidbody.position;
-                    rigidbody.transform.position = brakePosition;
-                }
+                //if (speed <= 0)
+                //{
+                //    speed = 0;
+                //    var brakePosition = rigidbody.position;
+                //    rigidbody.transform.position = brakePosition;
+                //}
                 if (speed < maxSpeed && speed >= 0)
                 {
                     speed += 1;
                     rightDirection = true;
+                    Debug.Log(speed);
+                }
+                else if(speed<0)
+                {
+                    speed = 0;
                 }
                 
                 FlipAndMove();
@@ -129,16 +134,21 @@ public class Controler1 : MonoBehaviour
             if ((stopPos.x > startPos.x) && facingRight == true)
             {
                 // rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
-                if (speed >= 0)
-                {
-                    speed = 0;
-                    var brakePosition = rigidbody.position;
-                    rigidbody.transform.position = brakePosition;
-                }
+                //if (speed >= 0)
+                //{
+                //    speed = 0;
+                //    var brakePosition = rigidbody.position;
+                //    rigidbody.transform.position = brakePosition;
+                //}
                 if ( speed > maxSpeedMinus && speed <= 0)
                 {
                     speed -= 1;
                     rightDirection = false;
+                    Debug.Log(speed);
+                }
+                else if( speed >0)
+                {
+                    speed = 0;
                 }
                 
                 FlipAndMove();
@@ -234,15 +244,18 @@ public class Controler1 : MonoBehaviour
     }
     public void RotationSlowing()
     {
-        if ( speed >=1  && speed <= 11 && Time.time > nextSlowTime)
+        slowTime += Time.deltaTime;
+
+        if ( speed >=1  && speed <= 11 && slowTime >= nextSlowTime)
         {
-            nextSlowTime += slowTime;
+
+            slowTime = 0;
             speed -= 1;
         }
 
-        if(speed <= -1 && speed >= -11 && Time.time > nextSlowTime)
+        else if(speed <= -1 && speed >= -11 && slowTime >= nextSlowTime)
         {
-            nextSlowTime += slowTime;
+            slowTime = 0;
             speed += 1;
         }
     }
