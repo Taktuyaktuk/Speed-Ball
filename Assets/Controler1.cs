@@ -15,6 +15,7 @@ public class Controler1 : MonoBehaviour
     private SpriteRenderer sprite;
     public bool barrelJump = false;
     public bool inBarrel = false;
+    public bool oneJump;
     
     
 
@@ -57,6 +58,7 @@ public class Controler1 : MonoBehaviour
     public bool rightDirection = false;
 
     public GameObject grassActivator;
+    public GameObject player;
 
     //zaczyna sie robiæ burdel... ponizej skok w powietrzu przy swipe
     float touchTimeStart, touchTimeFinish, timeInterval;
@@ -85,6 +87,7 @@ public class Controler1 : MonoBehaviour
         RotationSlowing();
         _grassActivator();
         jump1();
+        noDoubleJump();
         
         
     }
@@ -312,12 +315,13 @@ public class Controler1 : MonoBehaviour
                         //    rigidbody.AddForce(touchDir * tapPower);
                         //}
                     }
-                    else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && !isGrounded)
+                    else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && !isGrounded && oneJump == true)
                     {
                         //touchTimeFinish = Time.deltaTime;
                         timeInterval = touchTimeFinish - touchTimeStart;
                         direction = beginTouchPosition - endTouchPosition;
                         rigidbody.AddForce(-direction * tapPower);
+                        oneJump = false;
 
                     }
                     break;
@@ -366,6 +370,14 @@ public class Controler1 : MonoBehaviour
         }
     }
 
+    public void noDoubleJump()
+    {
+        if(isGrounded == true)
+        {
+            oneJump = true;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Coin"))
@@ -373,5 +385,23 @@ public class Controler1 : MonoBehaviour
             Destroy(other.gameObject);
             
         }
+
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            player.transform.SetParent(other.transform);
+            Debug.Log("platforma");
+           
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Platform"))
+        {
+            player.transform.SetParent(null);
+            Debug.Log("nie jest");
+        }
+    }
+
+
 }

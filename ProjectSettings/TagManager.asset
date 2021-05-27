@@ -11,6 +11,7 @@ TagManager:
   - GM
   - Dead
   - Coin
+  - Platform
   layers:
   - Default
   - TransparentFX

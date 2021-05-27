@@ -62,12 +62,13 @@
     <Compile Include="Assets\jumpingPad.cs" />
     <Compile Include="Assets\grassRot.cs" />
     <Compile Include="Assets\button_click_animation.cs" />
+    <Compile Include="Assets\coin.cs" />
     <Compile Include="Assets\Controler1.cs" />
     <Compile Include="Assets\camera.cs" />
+    <Compile Include="Assets\ScoreManager.cs" />
     <Compile Include="Assets\Barrel.cs" />
     <Compile Include="Assets\grassVfxEffects.cs" />
-    <Compile Include="Assets\ScoreManager.cs" />
-    <Compile Include="Assets\coin.cs" />
+    <Compile Include="Assets\Platform1.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
