@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Controler1 : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Controler1 : MonoBehaviour
     public bool barrelJump = false;
     public bool inBarrel = false;
     public bool oneJump;
+    public bool isStoped;
     
     
 
@@ -90,6 +92,7 @@ public class Controler1 : MonoBehaviour
         noDoubleJump();
         
         
+        
     }
 
     private void FixedUpdate()
@@ -126,35 +129,35 @@ public class Controler1 : MonoBehaviour
                     rightDirection = true;
                     Debug.Log(speed);
                 }
-                else if(speed<0)
+                
+                else if (rigidbody.angularVelocity < 0 && isGrounded)
                 {
+                    rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+                    rigidbody.constraints = RigidbodyConstraints2D.None;
                     speed = 0;
                 }
-                
-                FlipAndMove();
+
+                    FlipAndMove();
 
             }
             if ((stopPos.x > startPos.x) && facingRight == true)
             {
-                // rigidbody.AddForce(Vector2.right * tapPower, ForceMode2D.Force);
-                //if (speed >= 0)
-                //{
-                //    speed = 0;
-                //    var brakePosition = rigidbody.position;
-                //    rigidbody.transform.position = brakePosition;
-                //}
+                
                 if ( speed > maxSpeedMinus && speed <= 0)
                 {
                     speed -= 1;
                     rightDirection = false;
                     Debug.Log(speed);
                 }
-                else if( speed >0)
+              
+                else if (rigidbody.angularVelocity > 0 && isGrounded)
                 {
+                    rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+                    rigidbody.constraints = RigidbodyConstraints2D.None;
                     speed = 0;
                 }
-                
-                FlipAndMove();
+
+                    FlipAndMove();
             }
         }
     }
@@ -378,6 +381,8 @@ public class Controler1 : MonoBehaviour
         }
     }
 
+   
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Coin"))
@@ -389,7 +394,7 @@ public class Controler1 : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             player.transform.SetParent(other.transform);
-            Debug.Log("platforma");
+            
            
         }
     }
@@ -399,9 +404,10 @@ public class Controler1 : MonoBehaviour
         if(other.gameObject.CompareTag("Platform"))
         {
             player.transform.SetParent(null);
-            Debug.Log("nie jest");
+           
         }
     }
 
+    
 
 }
