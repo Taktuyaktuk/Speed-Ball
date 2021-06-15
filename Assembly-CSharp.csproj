@@ -59,6 +59,7 @@
     <Compile Include="Assets\Checkpoint.cs" />
     <Compile Include="Assets\GameMaster.cs" />
     <Compile Include="Assets\PlayerPos.cs" />
+    <Compile Include="Assets\SpriteManager.cs" />
     <Compile Include="Assets\jumpingPad.cs" />
     <Compile Include="Assets\grassRot.cs" />
     <Compile Include="Assets\button_click_animation.cs" />
@@ -66,9 +67,12 @@
     <Compile Include="Assets\Controler1.cs" />
     <Compile Include="Assets\camera.cs" />
     <Compile Include="Assets\ScoreManager.cs" />
+    <Compile Include="Assets\SkinManager.cs" />
     <Compile Include="Assets\Barrel.cs" />
-    <Compile Include="Assets\grassVfxEffects.cs" />
     <Compile Include="Assets\Platform1.cs" />
+    <Compile Include="Assets\grassVfxEffects.cs" />
+    <Compile Include="Assets\TrapParticles.cs" />
+    <Compile Include="Assets\DestroyAfterTime.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

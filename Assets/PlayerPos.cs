@@ -13,13 +13,8 @@ public class PlayerPos : MonoBehaviour
         transform.position = gm.lastCheckPointPos;
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
+    
+  
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Dead"))
