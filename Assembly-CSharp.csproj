@@ -56,11 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\TrapParticles.cs" />
     <Compile Include="Assets\Checkpoint.cs" />
     <Compile Include="Assets\GameMaster.cs" />
     <Compile Include="Assets\PlayerPos.cs" />
     <Compile Include="Assets\SpriteManager.cs" />
     <Compile Include="Assets\jumpingPad.cs" />
+    <Compile Include="Assets\DestroyAfterTime.cs" />
     <Compile Include="Assets\grassRot.cs" />
     <Compile Include="Assets\button_click_animation.cs" />
     <Compile Include="Assets\coin.cs" />
@@ -71,8 +73,9 @@
     <Compile Include="Assets\Barrel.cs" />
     <Compile Include="Assets\Platform1.cs" />
     <Compile Include="Assets\grassVfxEffects.cs" />
-    <Compile Include="Assets\TrapParticles.cs" />
-    <Compile Include="Assets\DestroyAfterTime.cs" />
+    <Compile Include="Assets\Main.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\MiniGamesMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
