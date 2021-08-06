@@ -7,7 +7,7 @@ public class MiniGamesMenu : MonoBehaviour
 {
     public void BasketBall()
     {
-        SceneManager.LoadScene("Character Select");
+        SceneManager.LoadScene("Basketball");
     }
 
     public void Back()

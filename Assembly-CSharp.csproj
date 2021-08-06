@@ -76,6 +76,7 @@
     <Compile Include="Assets\Barrel.cs" />
     <Compile Include="Assets\Platform1.cs" />
     <Compile Include="Assets\grassVfxEffects.cs" />
+    <Compile Include="Assets\BasketBallPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
