@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+
 
 public class SkinManager : MonoBehaviour
 {
@@ -33,7 +33,7 @@ public class SkinManager : MonoBehaviour
 
     public void PlayGame()
     {
-        PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/Prefabs/SelectedSkin.prefab");
+        PlayerPrefs.SetInt("skinIndex", selectedSkin);
         SceneManager.LoadScene("Game");
     }
 }

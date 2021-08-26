@@ -74,9 +74,11 @@
     <Compile Include="Assets\ScoreManager.cs" />
     <Compile Include="Assets\SkinManager.cs" />
     <Compile Include="Assets\Barrel.cs" />
+    <Compile Include="Assets\BasketBallPlayer.cs" />
     <Compile Include="Assets\Platform1.cs" />
     <Compile Include="Assets\grassVfxEffects.cs" />
-    <Compile Include="Assets\BasketBallPlayer.cs" />
+    <Compile Include="Assets\Scripts\CharacterSelectionMenu.cs" />
+    <Compile Include="Assets\Scripts\GameControl.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

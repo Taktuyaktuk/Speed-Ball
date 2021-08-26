@@ -10,6 +10,8 @@ public class SpriteManager : MonoBehaviour
     private Sprite playerSprite;
     void Start()
     {
+        PlayerPrefs.GetInt("skinIndex");
+
         playerSprite = selectedSkin.GetComponent<SpriteRenderer>().sprite;
 
         body.GetComponent<SpriteRenderer>().sprite = playerSprite;
