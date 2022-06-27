@@ -12,8 +12,6 @@ public class TrapParticles : MonoBehaviour
         if(other.CompareTag("Dead"))
         {
             Instantiate(ParticlesEffect, SpawnPosition);
-            Debug.Log("kolizja");
-            
         }
     }
 

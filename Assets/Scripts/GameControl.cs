@@ -22,7 +22,7 @@ public class GameControl : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-           
+            SceneManager.LoadScene("MainMenu");
         }
     }
     public void ReturnToMainMenu()

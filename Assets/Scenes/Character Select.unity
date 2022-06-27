@@ -558,8 +558,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1472644077}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
-        m_MethodName: NextOption
+        m_TargetAssemblyTypeName: CharacterSelectionMenu, Assembly-CSharp
+        m_MethodName: NextCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -691,8 +691,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1472644077}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
-        m_MethodName: BackOption
+        m_TargetAssemblyTypeName: CharacterSelectionMenu, Assembly-CSharp
+        m_MethodName: PreviousCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -804,7 +804,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000443691
 GameObject:
@@ -890,8 +890,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1472644077}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: CharacterSelectionMenu, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -939,18 +939,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000443691}
   m_CullTransparentMesh: 1
---- !u!1 &1169660170 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5419972549888907116, guid: 5c15266a723b1d4469d904ba20186ff9,
-    type: 3}
-  m_PrefabInstance: {fileID: 8504063789345758346}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1169660171 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1575428548821363275, guid: 5c15266a723b1d4469d904ba20186ff9,
-    type: 3}
-  m_PrefabInstance: {fileID: 8504063789345758346}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1472644076
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,16 +965,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1472644076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b819326e1a7c22a4f85e8668c9b1d058, type: 3}
+  m_Script: {fileID: 11500000, guid: a758c64e9bbebb248bed25fdc02bb14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 1169660171}
-  skins:
-  - {fileID: 21300000, guid: 3650b81a3f072eb41aa59b08b7d7f3a0, type: 3}
-  - {fileID: 21300000, guid: b1def8a569569a64fa4c2d4c10342332, type: 3}
-  - {fileID: 21300000, guid: a6f1f0bd97fe649448a42d90994dd141, type: 3}
-  - {fileID: 21300000, guid: b500f60280efd84449a3222fcbcd3fea, type: 3}
-  playerskin: {fileID: 1169660170}
+  playerObjects:
+  - {fileID: 7299436751935619543, guid: 4ebe629f64888d9469a494211b673ca2, type: 3}
+  - {fileID: 5611451953188465851, guid: a8577bd6116c7784f89871cb8444d7c1, type: 3}
+  selectedCharacter: 0
+  gameScene: Character Selection Scene
 --- !u!4 &1472644078
 Transform:
   m_ObjectHideFlags: 0
@@ -999,7 +985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687346489
 GameObject:
@@ -1230,79 +1216,10 @@ RectTransform:
   - {fileID: 782453722}
   - {fileID: 1000443692}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &8504063789345758346
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305013413658216177, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5419972549888907116, guid: 5c15266a723b1d4469d904ba20186ff9,
-        type: 3}
-      propertyPath: m_Name
-      value: SelectedSkin
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5c15266a723b1d4469d904ba20186ff9, type: 3}
