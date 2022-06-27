@@ -56,29 +56,30 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MiniGamesMenu.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\TrapParticles.cs" />
-    <Compile Include="Assets\Main.cs" />
-    <Compile Include="Assets\Checkpoint.cs" />
-    <Compile Include="Assets\GameMaster.cs" />
-    <Compile Include="Assets\PlayerPos.cs" />
-    <Compile Include="Assets\SpriteManager.cs" />
-    <Compile Include="Assets\jumpingPad.cs" />
-    <Compile Include="Assets\DestroyAfterTime.cs" />
-    <Compile Include="Assets\grassRot.cs" />
-    <Compile Include="Assets\button_click_animation.cs" />
-    <Compile Include="Assets\coin.cs" />
-    <Compile Include="Assets\Controler1.cs" />
-    <Compile Include="Assets\camera.cs" />
-    <Compile Include="Assets\ScoreManager.cs" />
-    <Compile Include="Assets\SkinManager.cs" />
-    <Compile Include="Assets\Barrel.cs" />
-    <Compile Include="Assets\BasketBallPlayer.cs" />
-    <Compile Include="Assets\Platform1.cs" />
-    <Compile Include="Assets\grassVfxEffects.cs" />
-    <Compile Include="Assets\Scripts\CharacterSelectionMenu.cs" />
+    <Compile Include="Assets\Scripts\MiniGamesMenu.cs" />
     <Compile Include="Assets\Scripts\GameControl.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\TrapParticles.cs" />
+    <Compile Include="Assets\Scripts\Main.cs" />
+    <Compile Include="Assets\Scripts\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\GameMaster.cs" />
+    <Compile Include="Assets\Scripts\PlayerPos.cs" />
+    <Compile Include="Assets\Scripts\SpriteManager.cs" />
+    <Compile Include="Assets\Scripts\jumpingPad.cs" />
+    <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
+    <Compile Include="Assets\Scripts\grassRot.cs" />
+    <Compile Include="Assets\Scripts\button_click_animation.cs" />
+    <Compile Include="Assets\Scripts\CharacterSelectionMenu.cs" />
+    <Compile Include="Assets\Scripts\coin.cs" />
+    <Compile Include="Assets\Scripts\Controler1.cs" />
+    <Compile Include="Assets\Scripts\camera.cs" />
+    <Compile Include="Assets\Scripts\ScoreManager.cs" />
+    <Compile Include="Assets\Scripts\SkinManager.cs" />
+    <Compile Include="Assets\Scripts\Barrel.cs" />
+    <Compile Include="Assets\Scripts\BasketBallPlayer.cs" />
+    <Compile Include="Assets\Scripts\Platform1.cs" />
+    <Compile Include="Assets\Scripts\grassVfxEffects.cs" />
+    <Compile Include="Assets\jumpingPad.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

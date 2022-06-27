@@ -9,6 +9,8 @@ public class jumpingPad : MonoBehaviour
 
     public void OnCollisionEnter2D(Collider2D other)
     {
+        
             other.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForcePower);
+        
     }
 }
